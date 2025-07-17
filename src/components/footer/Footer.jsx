@@ -28,7 +28,6 @@ const Footer = () => {
             <i className="bx bxl-twitter"></i>
         </a>
             </div>
-            <span className='f__copy'> &#169; Prakhyat006. All The rights reserved</span>
         </div>
     </footer>
   )
