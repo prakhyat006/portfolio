@@ -10,13 +10,15 @@ import Scrollup from './components/scrollup/Scrollup';
 import Services from './components/services/Services';
 import Skills from './components/skills/Skills';
 import Work from './components/work/Work';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Lenis from '@studio-freight/lenis';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
   const circleRef = useRef(null);
   const mouse = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
   const circle = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
+  const [showWelcome, setShowWelcome] = useState(true);
 
   useEffect(() => {
     // Lenis smooth scroll
@@ -56,21 +58,73 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    if (showWelcome) {
+      const timer = setTimeout(() => setShowWelcome(false), 2500);
+      return () => clearTimeout(timer);
+    }
+  }, [showWelcome]);
+
   return (
     <>
-     <div ref={circleRef} className="custom-cursor-circle" />
-     <Header/>
-     <main className='main'>
-      <Home/>
-      <About/>
-      <Skills/>
-      <Services/>
-      <Qualification/>
-      <Work/>
-      <Contact/>
-     </main>
-     <Footer/>
-     <Scrollup/>
+      <AnimatePresence>
+        {showWelcome && (
+          <motion.div
+            key="welcome"
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              width: '100vw',
+              height: '100vh',
+              background: '#fff',
+              zIndex: 9999,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexDirection: 'column',
+            }}
+          >
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              style={{ fontSize: '2.2rem', color: '#222', fontWeight: 700, marginBottom: '1.2rem', letterSpacing: '0.03em' }}
+            >
+              Welcome to Prakhyat's Portfolio
+            </motion.h1>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.7 }}
+              style={{ fontSize: '1.1rem', color: '#555' }}
+            >
+              Loading your experience...
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <div ref={circleRef} className="custom-cursor-circle  " />
+      {!showWelcome && (
+        <>
+          <Header />
+          <main className='main'>
+            <Home />
+            <About />
+            <Skills />
+            <Services />
+            <Qualification />
+            <Work />
+            <Contact />
+          </main>
+          <Footer />
+          <Scrollup />
+        </>
+      )}
     </>
   );
 }

@@ -63,6 +63,11 @@
   }
 }
 
+
+html {
+  scroll-behavior: smooth;
+}
+
 /*=============== BASE ===============*/
 * {
   margin: 0;

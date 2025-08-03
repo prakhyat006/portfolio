@@ -14,7 +14,7 @@ export const projectsData = [
     title: "CloudNoteBook",
     category: "web",
     git:"https://github.com/prakhyat006/CloudNoteBook",
-    tags: ["React", "AuthTokens", "Nodesjs","MongoDB"]
+    tags: ["React", "Auth", "Nodesjs","MongoDB"]
   },
   {
     id: 2,

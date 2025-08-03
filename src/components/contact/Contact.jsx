@@ -2,6 +2,7 @@ import React from 'react'
 import "./contact.css"
 import  { useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import { toast } from 'sonner';
 
 const Contact = () => {
     const form = useRef();
@@ -13,7 +14,13 @@ const Contact = () => {
       .sendForm('service_iin5lfi', 'template_kebmpne', form.current, {
         publicKey: 'yo3LZ6MZRMNoDjOQZ',
       })
-      e.target.reset()
+      .then(() => {
+        toast.success('Message sent successfully!');
+      })
+      .catch(() => {
+        toast.error('Failed to send message. Please try again.');
+      });
+    e.target.reset()
   };
 
   return (

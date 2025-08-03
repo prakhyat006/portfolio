@@ -8,7 +8,7 @@ const Services = () => {
     }
   return (
     <section className="services section" id="services">
-          <h2 className="section__title">Services</h2>
+          <h2 className="section__title">Areas of Expertise</h2>
         <span className="section__subtitle">What i offer</span>
 
         <div className="services__container container grid">
@@ -97,7 +97,7 @@ const Services = () => {
             <div className="services__content">
                 <div>
                     <i  className="uil uil-edit services__icon"></i>
-                    <h3 className="services__title">AI <br /> Engineer</h3>
+                    <h3 className="services__title">Data Science <br /> Engineer</h3>
                 </div>
                 <span onClick={()=>{toggletab(3)}} className="services__button">View More {" "}
                     <i   className="uil uil-arrow-right services__button-icon"></i>
@@ -105,7 +105,7 @@ const Services = () => {
                 <div className={toggle===3? "services__modal active-modal":"services__modal"}>
                     <div className="services__modal-content">
                         <i onClick={()=>{toggletab(0)}}className="uil uil-times services__modal-close"></i>
-                        <h3 className="services__modal-title">AI Engineer</h3>
+                        <h3 className="services__modal-title">Data Science Engineer</h3>
                         <p className="services__modal-description">
                             I had made Machine Learning project by Analysing the data And SomeTimes By creating Trained Models
                         </p>

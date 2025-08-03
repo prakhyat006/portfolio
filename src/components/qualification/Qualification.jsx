@@ -2,7 +2,7 @@ import React from 'react'
 import "./qualification.css"
 const Qualification = () => {
   return (
-    <section className="q section">
+    <section className="q section" id="qualification">
           <h2 className="section__title">Qualification</h2>
         <span className="section__subtitle">My Personal Journey</span>
 

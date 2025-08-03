@@ -133,13 +133,38 @@
 }
 
 @media screen and (max-width: 576px) {
-    .c__info{
-        grid-template-columns: 1fr;
-    }
-
-    .c__form{
-        width: 100%;
-    }
+  .c__container {
+    grid-template-columns: 1fr;
+    row-gap: 1.2rem;
+    padding: 0 0.5rem;
+  }
+  .c__info {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    justify-content: center;
+  }
+  .c__form {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .c__form-div {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .c__form-input {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.7rem 0.8rem;
+    border-radius: 0.5rem;
+  }
+  .c__button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 1rem 0;
+    display: block;
+    margin: 0 auto;
+  }
 }
 
 /* For small devices */

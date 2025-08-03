@@ -77,11 +77,38 @@
 }
 
 @media screen and (max-width: 576px) {
-    .about__info{
-    grid-template-columns: repeat(3,1fr); 
+  .about__container {
+    grid-template-columns: 1fr;
+    row-gap: 1.5rem;
+    column-gap: 0;
   }
-  .about__description{
+  .about__img {
+    width: 140px;
+    margin: 0 auto;
+    display: block;
+  }
+  .about__info {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+  }
+  .about__box {
+    padding: 0.7rem 0.8rem;
+    min-width: 0;
+  }
+  .about__description {
     padding: 0;
+    margin-bottom: 1.2rem;
+    font-size: 0.97rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .about__img {
+    width: 100px;
+  }
+  .about__info {
+    grid-template-columns: 1fr;
   }
 }
 

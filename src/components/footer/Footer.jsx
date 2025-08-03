@@ -18,14 +18,8 @@ const Footer = () => {
             </ul>
 
             <div className="f__socail">
-                <a href="https://www.instagram.com/" className="f__social-link" target='_blank'>
+                <a href="https://www.instagram.com/prakhyatshetty3/" className="f__social-link" target='_blank'>
             <i className="bx bxl-instagram"></i>
-        </a>
-        <a href="https://www.facebook.com/" className="f__social-link" target='_blank'>
-            <i className="bx bxl-facebook"></i>
-        </a>
-        <a href="https://twitter.com/" className="f__social-link" target='_blank'>
-            <i className="bx bxl-twitter"></i>
         </a>
             </div>
         </div>

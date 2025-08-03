@@ -2,6 +2,11 @@
     row-gap: 7rem;
 }
 
+.home.section {
+    position: relative;
+    overflow: hidden;
+}
+
 
 .home__content{
     grid-template-columns: 116px repeat(2,1fr);
@@ -17,7 +22,7 @@
 }
 
 .home__social-icon{
-    font-size: 1.25rem;
+    font-size: 1.6rem;
     color: var(--title-color);
 }
 
@@ -112,6 +117,95 @@
     color: var(--title-color);
 }
 
+.home__scroll {
+    transition: all 0.3s ease;
+}
+
+.home__scroll:hover {
+    transform: translateY(3px);
+}
+
+.home__scroll:hover .home__scroll-name,
+.home__scroll:hover .home__scroll-arrow {
+    color: var(--title-color-dark);
+}
+
+.home__scroll-name {
+    transition: color 0.3s ease;
+}
+
+.home__scroll-arrow {
+    transition: color 0.3s ease;
+}
+
+/* Floating Background Skill Logos */
+.floating-skills {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.floating-skill {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    left: var(--x);
+    top: var(--y);
+    opacity: 0.15;
+    animation: enhanced-float var(--duration) ease-in-out infinite;
+    animation-delay: var(--delay);
+    animation-fill-mode: both;
+    transition: all 0.3s ease;
+}
+
+.floating-skill img {
+    width: 100%;
+    height: 100%;
+    filter: grayscale(100%) brightness(0.4);
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.floating-skill:hover {
+    opacity: 0.4;
+    z-index: 1;
+    pointer-events: auto;
+    transform: scale(1.3);
+}
+
+.floating-skill:hover img {
+    filter: grayscale(0%) brightness(1);
+    opacity: 1;
+}
+
+@keyframes enhanced-float {
+    0% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+        opacity: 0.15;
+    }
+    25% {
+        transform: translateY(-12px) translateX(5px) rotate(3deg);
+        opacity: 0.2;
+    }
+    50% {
+        transform: translateY(-20px) translateX(-3px) rotate(0deg);
+        opacity: 0.15;
+    }
+    75% {
+        transform: translateY(-8px) translateX(8px) rotate(-3deg);
+        opacity: 0.2;
+    }
+    100% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+        opacity: 0.15;
+    }
+}
+
 
 
 /*=============== BREAKPOINTS ===============*/
@@ -190,4 +284,72 @@
         height: 22px;
     }
   
+}
+
+@media screen and (max-width: 576px) {
+  .home__container {
+    max-width: 100vw;
+    padding: 0 0.5rem;
+  }
+  .home__content {
+    grid-template-columns: 1fr;
+    padding-top: 2rem;
+    column-gap: 0;
+    row-gap: 1.2rem;
+    justify-items: center;
+    align-items: center;
+  }
+  .home__img {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 1rem auto;
+  }
+  .home__data {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .home__social {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
+    display: flex;
+  }
+  .home__title {
+    font-size: 2rem;
+    word-break: break-word;
+  }
+  .home__subtitle {
+    font-size: 1.1rem;
+    padding-left: 0;
+  }
+  .home__description {
+    font-size: 0.97rem;
+    padding: 0;
+    margin-bottom: 1.2rem;
+  }
+  .button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 1rem 0;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Floating skills responsive */
+  .floating-skill {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .home__img {
+    width: 90px;
+    height: 90px;
+  }
+  .home__title {
+    font-size: 1.3rem;
+  }
 }
